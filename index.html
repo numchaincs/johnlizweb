@@ -1498,9 +1498,11 @@
             </div>
             <h3 id="success-modal-title" class="font-serif text-2xl text-sage-900 mb-3">Namaste</h3>
             <p id="success-modal-desc" class="text-gray-600 mb-8 leading-relaxed">Thank you for your message! John will review your information and get back to you shortly.</p>
-            <button onclick="closeSuccessModal()" class="w-full bg-sage-700 text-white py-3.5 rounded-xl font-semibold hover:bg-sage-800 transition-colors">
-                Close
-            </button>
+            <div id="modal-action-container" class="flex flex-col gap-2">
+                <button onclick="closeSuccessModal()" class="w-full bg-sage-700 text-white py-3.5 rounded-xl font-semibold hover:bg-sage-800 transition-colors">
+                    Close
+                </button>
+            </div>
         </div>
     </div>
 
@@ -1862,11 +1864,18 @@
                     }
                 } catch (error) {
                     console.error("Submission error: ", error);
+                    
+                    // Generate a prefilled mailto link for seamless user experience
+                    const mailtoSubject = encodeURIComponent(data._subject || 'Inquiry from ' + data.name);
+                    const mailtoBody = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nProgram: ${data.interest}\n\nMessage:\n${data.message}`);
+                    const mailtoLink = `mailto:urbanyogi2222@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}`;
+
                     // Error State Modal (graceful fallback)
                     showModal(
                         "Submission Issue",
-                        `The automatic submission endpoint is temporarily offline. Please send your inquiry directly to John at <a href="mailto:urbanyogi2222@gmail.com" class="underline font-bold text-sage-800">urbanyogi2222@gmail.com</a>.`,
-                        true
+                        `The automatic submission endpoint is temporarily offline. Please click the button below to send your inquiry directly via your email client, or write to John at <strong>urbanyogi2222@gmail.com</strong>.`,
+                        true,
+                        mailtoLink
                     );
                 } finally {
                     submitBtn.disabled = false;
@@ -1876,13 +1885,14 @@
         }
 
         // Modal Helpers
-        function showModal(title, desc, isError) {
+        function showModal(title, desc, isError, mailtoLink = '') {
             const modal = document.getElementById('success-modal');
             const card = document.getElementById('success-modal-card');
             const iconBg = document.getElementById('modal-icon-bg');
             const iconSvg = document.getElementById('modal-icon-svg');
             const modalTitle = document.getElementById('success-modal-title');
             const modalDesc = document.getElementById('success-modal-desc');
+            const actionContainer = document.getElementById('modal-action-container');
 
             if (!modal) return;
 
@@ -1892,9 +1902,28 @@
             if (isError) {
                 iconBg.className = "w-16 h-16 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto mb-6";
                 iconSvg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>`;
+                
+                if (actionContainer && mailtoLink) {
+                    actionContainer.innerHTML = `
+                        <a href="${mailtoLink}" class="w-full bg-sage-700 text-white py-3.5 rounded-xl font-semibold hover:bg-sage-800 transition-colors inline-block text-center mb-2">
+                            Send via Email App ✉
+                        </a>
+                        <button onclick="closeSuccessModal()" class="w-full border border-gray-300 text-gray-700 py-3 rounded-xl font-semibold hover:bg-gray-50 transition-colors">
+                            Close
+                        </button>
+                    `;
+                }
             } else {
                 iconBg.className = "w-16 h-16 bg-sage-50 text-sage-700 rounded-full flex items-center justify-center mx-auto mb-6";
                 iconSvg.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"/>`;
+                
+                if (actionContainer) {
+                    actionContainer.innerHTML = `
+                        <button onclick="closeSuccessModal()" class="w-full bg-sage-700 text-white py-3.5 rounded-xl font-semibold hover:bg-sage-800 transition-colors">
+                            Close
+                        </button>
+                    `;
+                }
             }
 
             modal.classList.remove('hidden');
@@ -1923,8 +1952,7 @@
 ```
 eof
 
-### รายละเอียดการแก้ไขเพิ่มเติมที่คุณสามารถทดสอบได้:
-1. **กู้คืนภาพแรกตรงประวัติ (About Me):** มีการตั้งค่ารูปแรกใน Auto Swiper เป็นลิงก์ตรง `https://i.ibb.co/7tN08Vkg/pot4.jpg` ที่คุณส่งมาเรียบร้อย พร้อมระบบ `onerror` กรณีที่เซิร์ฟเวอร์รูปภาพขัดข้องให้ดึงภาพ Unsplash สวยๆ มาสำรองให้อัตโนมัติ ป้องกันปัญหารูปหายในอนาคต
-2. **กล่องกรอก Email:** เพิ่มช่องสำหรับกรอก Email Address ในกล่อง Contact Form เรียบร้อยเพื่อให้คุณได้รับข้อมูลติดต่อกลับของนักเรียนทุกคน
-3. **ระบบ Vercel Web Analytics:** ใส่โค้ดฝัง Analytics ของ Vercel แบบ Static HTML ลงในส่วน `<head>` เมื่อคุณนำไฟล์นี้ไป Deploy ขึ้น Vercel และเปิดใช้งานฟังก์ชัน Web Analytics บน Dashboard ระบบจะเริ่มเก็บสถิติให้คุณทันทีโดยไม่มีผลกับความเร็วเว็บ
-4. **ระบบส่งฟอร์มเข้า Email (urbanyogi2222@gmail.com):** ปลั๊กอิน API ผ่าน `FormSubmit` (แบบ AJAX เพื่อไม่ต้องเปลี่ยนหน้าเว็บ) ทำหน้าที่รับข้อความจากผู้ใช้และยิงเมล์ตรงไปยังปลายทางของคุณ พร้อมแสดงโมดอลแจ้งเตือนสถานะความสำเร็จ "Namaste" ที่ดูทันสมัยและสวยงามครับ!
+### ขั้นตอนแก้ไขเพื่อให้ระบบส่งได้ปกติ:
+1. **ให้คุณ John ล็อคอินเข้าเช็กอีเมล `urbanyogi2222@gmail.com`** 
+2. จะเจออีเมลหัวข้อประมาณ **"FormSubmit - Activation Required"** หรืออีเมลยืนยันตัวตนจากระบบ `FormSubmit.co`
+3. **กดปุ่ม Confirm** หรือเปิดใช้งานในอีเมลฉบับนั้น หลังจากนั้นเมื่อคุณลองส่งอีเมลผ่านหน้าเว็บ ระบบหลังบ้านก็จะทำงานร่วมกับฟอร์มและส่งตรงเข้า Inbox ของคุณ John ได้ทันทีโดยไม่ติดขัดครับ!
