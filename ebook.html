@@ -127,6 +127,24 @@
             #sticky-cta { padding-bottom: max(0.85rem, env(safe-area-inset-bottom)); }
         }
 
+        /* Email gate modal */
+        #email-modal {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+        #email-modal.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        #email-modal .modal-card {
+            transform: scale(0.95) translateY(8px);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #email-modal.show .modal-card {
+            transform: scale(1) translateY(0);
+        }
+
         /* Language switch */
         .lang-switch button {
             transition: all 0.25s ease;
@@ -197,16 +215,16 @@
                     </p>
 
                     <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-                        <a href="Wall%20Mobility.pdf" download="Wall-Mobility-Self-Check-John-Lizcano.pdf"
-                           class="btn-primary btn-glow shimmer relative overflow-hidden w-full sm:w-auto bg-sage-700 text-white px-8 py-4 rounded-full text-sm sm:text-base font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                        <button type="button" data-download-trigger
+                                class="btn-primary btn-glow shimmer relative overflow-hidden w-full sm:w-auto bg-sage-700 text-white px-8 py-4 rounded-full text-sm sm:text-base font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md">
+                            <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
                             <span data-i18n="btn_download">Download Free Mobility Assessment</span>
-                        </a>
+                        </button>
                         <a href="#preview" class="w-full sm:w-auto text-sage-700 border-2 border-sage-300 hover:border-sage-700 px-8 py-[14px] rounded-full text-sm sm:text-base font-semibold tracking-wide inline-flex items-center justify-center gap-2 transition-colors">
                             <span data-i18n="btn_preview">Preview the Content</span>
                         </a>
                     </div>
-                    <p class="text-xs text-gray-400 mt-4" data-i18n="hero_note">No spam · 4-page PDF · Opens instantly on mobile</p>
+                    <p class="text-xs text-gray-400 mt-4" data-i18n="hero_note">Free instant download · we'll email your copy too · no spam</p>
                 </div>
 
                 <!-- Book mockup -->
@@ -297,11 +315,11 @@
                 <div class="bg-sage-50 border border-sage-100 rounded-3xl p-8 sm:p-10 text-center max-w-2xl mx-auto">
                     <h3 class="font-serif text-2xl sm:text-3xl text-sage-900 font-light mb-3" data-i18n="cta_mid_title">Ready to check your own body?</h3>
                     <p class="text-gray-600 text-sm sm:text-base mb-7" data-i18n="cta_mid_desc">Download the full guide (4-page PDF) and keep it open while you train.</p>
-                    <a href="Wall%20Mobility.pdf" download="Wall-Mobility-Self-Check-John-Lizcano.pdf"
-                       class="btn-primary btn-glow shimmer relative overflow-hidden bg-sage-700 text-white px-9 py-4 rounded-full text-sm sm:text-base font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md">
+                    <button type="button" data-download-trigger
+                            class="btn-primary btn-glow shimmer relative overflow-hidden bg-sage-700 text-white px-9 py-4 rounded-full text-sm sm:text-base font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
                         <span data-i18n="btn_download2">Download Free Mobility Assessment</span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -378,11 +396,37 @@
 
     <!-- Mobile sticky download bar -->
     <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-white/95 backdrop-blur-md border-t border-sage-100 px-4 pt-3 shadow-[0_-8px_24px_-8px_rgba(74,32,12,0.15)]">
-        <a href="Wall%20Mobility.pdf" download="Wall-Mobility-Self-Check-John-Lizcano.pdf"
-           class="btn-primary w-full bg-sage-700 text-white px-6 py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md mb-3">
+        <button type="button" data-download-trigger
+                class="btn-primary w-full bg-sage-700 text-white px-6 py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md mb-3">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
             <span data-i18n="sticky_btn">Download Free Mobility Assessment</span>
-        </a>
+        </button>
+    </div>
+
+    <!-- Email gate modal -->
+    <div id="email-modal" class="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
+        <div class="modal-card bg-white rounded-3xl p-8 sm:p-10 max-w-md w-full shadow-2xl border border-sage-100 relative">
+            <button type="button" id="email-modal-close" aria-label="Close" class="absolute top-5 right-5 text-gray-400 hover:text-sage-700 transition-colors">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+            </button>
+            <div class="w-14 h-14 rounded-full bg-sage-50 text-sage-700 flex items-center justify-center mb-5">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+            </div>
+            <h3 class="font-serif text-2xl text-sage-900 font-light mb-2" data-i18n="modal_title">Enter Your Email to Download</h3>
+            <p class="text-sm text-gray-500 mb-6" data-i18n="modal_desc">We'll send your free assessment to your inbox too — no spam, ever.</p>
+            <form id="email-modal-form" novalidate>
+                <input type="email" inputmode="email" autocomplete="email" required id="email-modal-input"
+                       placeholder="you@email.com" data-i18n-attr="placeholder" data-i18n="gate_placeholder"
+                       class="w-full rounded-full border-2 border-sage-200 bg-white px-5 py-3.5 text-sm sm:text-base text-gray-700 placeholder-gray-400 focus:outline-none focus:border-sage-700 transition-colors">
+                <p class="hidden text-xs text-red-600 mt-2" id="email-modal-error" data-i18n="gate_error">Please enter a valid email address.</p>
+                <button type="submit" id="email-modal-submit" disabled
+                        class="btn-primary relative overflow-hidden w-full bg-sage-700 text-white px-8 py-4 rounded-full text-sm sm:text-base font-semibold tracking-wide inline-flex items-center justify-center gap-2 shadow-md opacity-40 cursor-not-allowed pointer-events-none transition-all mt-4">
+                    <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                    <span data-i18n="btn_download">Download Free Mobility Assessment</span>
+                </button>
+            </form>
+            <p class="text-xs text-gray-400 mt-4 text-center" data-i18n="hero_note">Free instant download · we'll email your copy too · no spam</p>
+        </div>
     </div>
 
     <script>
@@ -400,7 +444,11 @@
             },
             btn_download: { en: 'Download Free Mobility Assessment', th: 'ดาวน์โหลดแบบประเมินความยืดหยุ่น ฟรี' },
             btn_preview: { en: 'Preview the Content', th: 'ดูตัวอย่างเนื้อหา' },
-            hero_note: { en: 'No spam · 4-page PDF · Opens instantly on mobile', th: 'ไม่มีสแปม · ไฟล์ PDF 4 หน้า · เปิดอ่านได้ทันทีบนมือถือ' },
+            hero_note: { en: "Free instant download · we'll email your copy too · no spam", th: 'ดาวน์โหลดฟรีทันที · ส่งสำเนาให้ทางอีเมลด้วย · ไม่มีสแปม' },
+            gate_placeholder: { en: 'you@email.com', th: 'อีเมลของคุณ' },
+            gate_error: { en: 'Please enter a valid email address.', th: 'กรุณากรอกอีเมลให้ถูกต้อง' },
+            modal_title: { en: 'Enter Your Email to Download', th: 'กรอกอีเมลเพื่อดาวน์โหลด' },
+            modal_desc: { en: "We'll send your free assessment to your inbox too — no spam, ever.", th: 'เราจะส่งไฟล์ให้ทางอีเมลด้วย — ไม่มีสแปมแน่นอน' },
             book_badge_label: { en: 'Inside', th: 'แบบทดสอบ' },
             book_badge_value: { en: '2 Tests', th: '2 แบบทดสอบ' },
             scroll_cue: { en: 'Scroll', th: 'เลื่อนดู' },
@@ -499,6 +547,117 @@
             }, { threshold: 0 });
             stickyObserver.observe(document.querySelector('header'));
         }
+
+        // ---- Email-gated download modal ----
+        const PDF_URL = 'Wall%20Mobility.pdf';
+        const PDF_FILENAME = 'Wall-Mobility-Self-Check-John-Lizcano.pdf';
+        const LEAD_ENDPOINT = 'https://formsubmit.co/ajax/Johnlizcanomobility@gmail.com';
+
+        function isValidEmail(value) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+        }
+
+        function isUnlocked() {
+            try { return localStorage.getItem('ebook_unlocked_v2') === '1'; } catch (e) { return false; }
+        }
+
+        function triggerPdfDownload() {
+            const a = document.createElement('a');
+            a.href = PDF_URL;
+            a.download = PDF_FILENAME;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+        }
+
+        function sendLeadEmail(email) {
+            fetch(LEAD_ENDPOINT, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    email: email,
+                    _subject: `New Free Mobility Assessment Download — ${email}`,
+                    source: 'Wall Mobility Ebook Landing Page',
+                    page: window.location.href
+                })
+            }).catch(err => console.error('Lead notification failed (download still succeeded):', err));
+        }
+
+        const emailModal = document.getElementById('email-modal');
+        const emailModalForm = document.getElementById('email-modal-form');
+        const emailModalInput = document.getElementById('email-modal-input');
+        const emailModalSubmit = document.getElementById('email-modal-submit');
+        const emailModalError = document.getElementById('email-modal-error');
+        const emailModalClose = document.getElementById('email-modal-close');
+
+        function openEmailModal() {
+            if (!emailModal) return;
+            emailModalInput.value = '';
+            emailModalSubmit.disabled = true;
+            emailModalSubmit.classList.add('opacity-40', 'cursor-not-allowed', 'pointer-events-none');
+            emailModalError.classList.add('hidden');
+            emailModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => emailModalInput.focus(), 250);
+        }
+
+        function closeEmailModal() {
+            if (!emailModal) return;
+            emailModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        if (emailModalInput) {
+            emailModalInput.addEventListener('input', () => {
+                const valid = isValidEmail(emailModalInput.value);
+                emailModalSubmit.disabled = !valid;
+                emailModalSubmit.classList.toggle('opacity-40', !valid);
+                emailModalSubmit.classList.toggle('cursor-not-allowed', !valid);
+                emailModalSubmit.classList.toggle('pointer-events-none', !valid);
+                emailModalError.classList.add('hidden');
+            });
+        }
+
+        if (emailModalForm) {
+            emailModalForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const email = emailModalInput.value.trim();
+                if (!isValidEmail(email)) {
+                    emailModalError.classList.remove('hidden');
+                    return;
+                }
+                try {
+                    localStorage.setItem('ebook_unlocked_v2', '1');
+                    localStorage.setItem('ebook_email', email);
+                } catch (err) {}
+
+                // Trigger the download immediately (inside the user gesture) so mobile
+                // browsers don't block it — the lead notification fires in parallel.
+                triggerPdfDownload();
+                sendLeadEmail(email);
+                closeEmailModal();
+            });
+        }
+
+        if (emailModalClose) emailModalClose.addEventListener('click', closeEmailModal);
+        if (emailModal) {
+            emailModal.addEventListener('click', (e) => {
+                if (e.target === emailModal) closeEmailModal();
+            });
+        }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && emailModal && emailModal.classList.contains('show')) closeEmailModal();
+        });
+
+        document.querySelectorAll('[data-download-trigger]').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (isUnlocked()) {
+                    triggerPdfDownload();
+                } else {
+                    openEmailModal();
+                }
+            });
+        });
     </script>
 
     <!-- Vercel Web Analytics Setup -->
