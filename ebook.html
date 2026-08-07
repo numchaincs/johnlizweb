@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title data-i18n="meta_title">Free Download! Wall Mobility Self-Check — John Lizcano</title>
+    <meta name="description" data-i18n-attr="content" data-i18n="meta_desc" content="Download the free Wall Mobility Self-Check — assess your ankle and shoulder mobility yourself in under 5 minutes. From the Find & Fix Mobility Method™ by John Lizcano.">
+    <link rel="icon" href="JohnW_Logo.svg" type="image/svg+xml">
+    <meta property="og:title" content="Free Download! Wall Mobility Self-Check — John Lizcano">
+    <meta property="og:description" content="Assess your ankle and shoulder mobility yourself in 5 minutes, using just a wall and a tape measure — from the Find & Fix Mobility Method™.">
+    <meta property="og:image" content="https://i.ibb.co/JbYDBmr/1-91-1.jpg">
+    <meta name="robots" content="noindex">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght=300;400;500;600;700&family=Noto+Sans+Thai:wght=300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Inter', 'Noto Sans Thai', 'sans-serif'],
+                    },
+                    colors: {
+                        sage: {
+                            50: '#FAF0EB', 100: '#F2D3C4', 200: '#DFAB90', 300: '#C37854',
+                            400: '#A1522E', 500: '#813A19', 600: '#642C12', 700: '#4A200C',
+                            800: '#391809', 900: '#281005',
+                        },
+                        clay: {
+                            50: '#faf8f5', 100: '#f2ede5', 200: '#e6dace', 300: '#d4c2b0',
+                            400: '#c0a68e', 500: '#a88d6f', 600: '#8f7358', 700: '#755e48',
+                            800: '#5f4e3e', 900: '#4e4035',
+                        },
+                        warm: {
+                            50: '#fdfbf7', 100: '#f9f5ed', 200: '#f0e8d6', 300: '#e4d5b5',
+                            400: '#d4bc8e', 500: '#c4a46e', 600: '#a68852', 700: '#856b41',
+                            800: '#6b5637', 900: '#57462f',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        * { -webkit-tap-highlight-color: transparent; }
+        body { -webkit-font-smoothing: antialiased; }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .fade-in-up.visible { opacity: 1; transform: translateY(0); }
+
+        .hero-bg { background: linear-gradient(135deg, #FAF0EB 0%, #f2ede5 50%, #fdfbf7 100%); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(-2deg); }
+            50% { transform: translateY(-14px) rotate(1deg); }
+        }
+        .float-anim { animation: float 6s ease-in-out infinite; }
+        .float-anim-slow { animation: float 8s ease-in-out infinite; animation-delay: .6s; }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 8px 24px -6px rgba(74, 32, 12, 0.35), 0 0 0 0 rgba(129, 58, 25, 0.35); }
+            50% { box-shadow: 0 12px 32px -6px rgba(74, 32, 12, 0.45), 0 0 0 14px rgba(129, 58, 25, 0); }
+        }
+        .btn-glow { animation: pulse-glow 2.6s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+
+        .btn-primary { transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .btn-primary:hover { transform: translateY(-2px) scale(1.02); }
+        .btn-primary:active { transform: translateY(0) scale(0.98); }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-120%) skewX(-15deg); }
+            100% { transform: translateX(220%) skewX(-15deg); }
+        }
+        .shimmer::after {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 30%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+            animation: shimmer 3.2s ease-in-out infinite;
+        }
+
+        @keyframes bounce-arrow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(6px); }
+        }
+        .bounce-arrow { animation: bounce-arrow 1.6s ease-in-out infinite; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: .3; transform: scale(0.8) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.15) rotate(20deg); }
+        }
+        .sparkle { animation: sparkle 2.4s ease-in-out infinite; }
+
+        .book-cover {
+            background: linear-gradient(160deg, #4A200C 0%, #642C12 45%, #813A19 100%);
+            box-shadow: 0 30px 60px -20px rgba(40, 16, 5, 0.5), inset 0 0 0 1px rgba(255,255,255,0.06);
+        }
+        .book-spine { background: linear-gradient(90deg, rgba(0,0,0,0.35), rgba(0,0,0,0) 30%); }
+        .book-pages {
+            background: repeating-linear-gradient(180deg, #fdfbf7 0px, #fdfbf7 2px, #f0e8d6 3px);
+        }
+
+        .card-hover { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -12px rgba(74, 32, 12, 0.18); }
+
+        .image-reveal { overflow: hidden; }
+        .image-reveal img { transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+        .image-reveal:hover img { transform: scale(1.04); }
+
+        .section-divider { height: 1px; background: linear-gradient(90deg, transparent, #d4c2b0, transparent); }
+
+        /* Mobile sticky CTA */
+        #sticky-cta {
+            transform: translateY(120%);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #sticky-cta.show { transform: translateY(0); }
+
+        @supports (padding: max(0px)) {
+            #sticky-cta { padding-bottom: max(0.85rem, env(safe-area-inset-bottom)); }
+        }
+
+        /* Language switch */
+        .lang-switch button {
+            transition: all 0.25s ease;
+        }
+        .lang-switch button.active {
+            background-color: #4A200C;
+            color: #fff;
+        }
+        .lang-switch button:not(.active) {
+            color: #813A19;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 antialiased bg-warm-50">
+
+    <!-- Minimal Header -->
+    <header class="w-full py-5 px-6 lg:px-8 relative z-30">
+        <div class="max-w-5xl mx-auto flex items-center justify-between gap-3">
+            <a href="index.html" class="flex items-center gap-3 group min-w-0">
+                <img src="JohnB_Logo.svg" alt="John Lizcano Logo" class="w-9 h-9 sm:w-10 sm:h-10 object-contain group-hover:opacity-80 transition-opacity flex-shrink-0">
+                <div class="flex flex-col leading-none min-w-0">
+                    <span class="font-serif text-base sm:text-lg font-semibold text-sage-900 tracking-wide truncate">JOHN LIZCANO</span>
+                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.12em] text-gray-500 font-medium truncate">Mobility & Movement Educator</span>
+                </div>
+            </a>
+
+            <div class="flex items-center gap-3 sm:gap-5 flex-shrink-0">
+                <a href="#download" class="hidden sm:inline-flex items-center gap-1.5 text-sage-700 text-sm font-semibold hover:text-sage-900 transition-colors">
+                    <span data-i18n="nav_download">Free Download</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                </a>
+
+                <!-- Language switcher -->
+                <div class="lang-switch inline-flex items-center bg-white/70 backdrop-blur-sm border border-sage-200/60 rounded-full p-1 text-xs font-bold shadow-sm">
+                    <button type="button" data-lang-btn="en" class="active px-3 py-1.5 rounded-full transition-colors">EN</button>
+                    <button type="button" data-lang-btn="th" class="px-3 py-1.5 rounded-full transition-colors">TH</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero-bg relative overflow-hidden pt-6 pb-16 sm:pb-24">
+        <div class="absolute top-10 right-0 w-72 h-72 sm:w-96 sm:h-96 bg-sage-200/30 rounded-full blur-3xl float-anim pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 w-56 h-56 sm:w-72 sm:h-72 bg-clay-200/30 rounded-full blur-3xl float-anim pointer-events-none" style="animation-delay: 2s;"></div>
+
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+                <!-- Copy -->
+                <div class="fade-in-up text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/70 backdrop-blur-sm rounded-full px-4 py-2 mb-6 border border-sage-200/60 shadow-sm">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shadow-sm shadow-emerald-500/50"></span>
+                        <span class="text-xs sm:text-sm font-semibold text-sage-700" data-i18n="hero_badge">100% Free · Instant Download</span>
+                    </div>
+
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-light text-sage-900 leading-[1.15] mb-5" data-i18n="hero_h1">
+                        Check Your<br>
+                        <span class="italic">Ankle &amp; Shoulder</span> Mobility<br>
+                        <span class="text-xl sm:text-2xl lg:text-3xl text-sage-700 font-normal block mt-3">Yourself — In 5 Minutes, With a Wall</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-600 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0" data-i18n="hero_desc">
+                        The <span class="font-semibold text-sage-800">Wall Mobility Self-Check</span> from the
+                        <span class="font-semibold text-sage-800">Find &amp; Fix Mobility Method™</span> by John Lizcano —
+                        two simple tests that reveal your movement baseline before you squat, run, lift overhead, or deepen your yoga practice.
+                        All you need is a bare wall and a tape measure.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="Wall%20Mobility.pdf" download="Wall-Mobility-Self-Check-John-Lizcano.pdf"
+                           class="btn-primary btn-glow shimmer relative overflow-hidden w-full sm:w-auto bg-sage-700 text-white px-8 py-4 rounded-full text-sm sm:text-base font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                            <span data-i18n="btn_download">Download Free Mobility Assessment</span>
+                        </a>
+                        <a href="#preview" class="w-full sm:w-auto text-sage-700 border-2 border-sage-300 hover:border-sage-700 px-8 py-[14px] rounded-full text-sm sm:text-base font-semibold tracking-wide inline-flex items-center justify-center gap-2 transition-colors">
+                            <span data-i18n="btn_preview">Preview the Content</span>
+                        </a>
+                    </div>
+                    <p class="text-xs text-gray-400 mt-4" data-i18n="hero_note">No spam · 4-page PDF · Opens instantly on mobile</p>
+                </div>
+
+                <!-- Book mockup -->
+                <div class="fade-in-up relative flex justify-center" style="transition-delay: 0.15s;">
+                    <div class="relative w-56 sm:w-64 lg:w-72 float-anim">
+                        <!-- sparkles -->
+                        <svg class="absolute -top-4 -right-3 w-7 h-7 text-clay-400 sparkle" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg>
+                        <svg class="absolute bottom-8 -left-5 w-5 h-5 text-sage-400 sparkle" style="animation-delay: 1s;" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0l2.5 8.5L23 11l-8.5 2.5L12 22l-2.5-8.5L1 11l8.5-2.5L12 0z"/></svg>
+
+                        <div class="relative aspect-[3/4] rounded-r-xl rounded-l-md overflow-hidden book-cover">
+                            <div class="absolute inset-y-0 left-0 w-4 book-spine"></div>
+                            <!-- stacked pages effect -->
+                            <div class="absolute -right-1.5 top-2 bottom-2 w-1.5 book-pages rounded-r-sm opacity-80"></div>
+                            <div class="absolute -right-0.5 top-1 bottom-1 w-1 book-pages rounded-r-sm opacity-60"></div>
+
+                            <div class="relative z-10 h-full flex flex-col justify-between p-6 sm:p-7 text-white">
+                                <div>
+                                    <span class="text-[9px] sm:text-[10px] uppercase tracking-[0.2em] text-sage-200 font-semibold">Find &amp; Fix Mobility Method™</span>
+                                    <h2 class="font-serif text-2xl sm:text-3xl font-light leading-tight mt-3">The Wall<br>Mobility<br><span class="italic">Self-Check</span></h2>
+                                </div>
+                                <div class="flex items-center gap-2 pt-4 border-t border-white/15">
+                                    <div class="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0">
+                                        <span class="font-serif text-xs">JL</span>
+                                    </div>
+                                    <span class="text-xs text-sage-200">John Lizcano</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- floating badge -->
+                        <div class="absolute -bottom-5 -right-4 sm:-right-8 bg-white rounded-2xl px-4 py-3 shadow-xl border border-sage-100 z-20 float-anim-slow">
+                            <p class="text-[10px] uppercase tracking-wider text-sage-500 font-semibold" data-i18n="book_badge_label">Inside</p>
+                            <p class="font-serif text-lg text-sage-900 font-semibold leading-none mt-0.5" data-i18n="book_badge_value">2 Tests</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- scroll cue -->
+            <div class="hidden sm:flex justify-center mt-16">
+                <a href="#preview" class="flex flex-col items-center gap-1 text-sage-400 hover:text-sage-600 transition-colors">
+                    <span class="text-[10px] uppercase tracking-widest font-semibold" data-i18n="scroll_cue">Scroll</span>
+                    <svg class="w-4 h-4 bounce-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PREVIEW SECTION -->
+    <section id="preview" class="py-20 sm:py-28 bg-white">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14 fade-in-up">
+                <span class="text-xs sm:text-sm uppercase tracking-[0.2em] text-sage-500 font-semibold mb-4 block" data-i18n="preview_eyebrow">What's Inside</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-sage-900 mb-5" data-i18n="preview_h2">2 Tests You Can Run at Home</h2>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed" data-i18n="preview_desc">
+                    Your ankles and shoulders set the ceiling for almost everything you do under load — squatting, running, lifting overhead, landing.
+                    All you need is a bare wall and a tape measure to find your baseline in under 5 minutes.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+                <div class="fade-in-up card-hover bg-warm-50 rounded-3xl overflow-hidden border border-sage-100 shadow-sm">
+                    <div class="image-reveal">
+                        <img src="01.jpg" alt="Test 01 — Knee-to-Wall Ankle Mobility Test" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="p-6 sm:p-7">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-sage-500">Test 01</span>
+                        <h3 class="font-serif text-xl sm:text-2xl text-sage-900 font-semibold mt-1 mb-2" data-i18n="test1_title">Ankle Mobility (Dorsiflexion)</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed" data-i18n="test1_desc">Relevant for squatting, running, and jumping — measure the knee-to-wall distance to gauge your ankle's range of motion.</p>
+                    </div>
+                </div>
+
+                <div class="fade-in-up card-hover bg-warm-50 rounded-3xl overflow-hidden border border-sage-100 shadow-sm" style="transition-delay: 0.1s;">
+                    <div class="image-reveal">
+                        <img src="02.jpg" alt="Test 02 — Wall Shoulder Flexion Test" class="w-full h-auto object-cover">
+                    </div>
+                    <div class="p-6 sm:p-7">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-sage-500">Test 02</span>
+                        <h3 class="font-serif text-xl sm:text-2xl text-sage-900 font-semibold mt-1 mb-2" data-i18n="test2_title">Shoulder Mobility (Flexion)</h3>
+                        <p class="text-sm text-gray-600 leading-relaxed" data-i18n="test2_desc">Important for overhead pressing, handstands, and backbends — check whether you're arching your back to fake the range.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Big download CTA repeated -->
+            <div id="download" class="mt-14 sm:mt-16 fade-in-up">
+                <div class="bg-sage-50 border border-sage-100 rounded-3xl p-8 sm:p-10 text-center max-w-2xl mx-auto">
+                    <h3 class="font-serif text-2xl sm:text-3xl text-sage-900 font-light mb-3" data-i18n="cta_mid_title">Ready to check your own body?</h3>
+                    <p class="text-gray-600 text-sm sm:text-base mb-7" data-i18n="cta_mid_desc">Download the full guide (4-page PDF) and keep it open while you train.</p>
+                    <a href="Wall%20Mobility.pdf" download="Wall-Mobility-Self-Check-John-Lizcano.pdf"
+                       class="btn-primary btn-glow shimmer relative overflow-hidden bg-sage-700 text-white px-9 py-4 rounded-full text-sm sm:text-base font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+                        <span data-i18n="btn_download2">Download Free Mobility Assessment</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider max-w-4xl mx-auto"></div>
+
+    <!-- UPSELL SECTION -->
+    <section id="upsell" class="py-20 sm:py-28 bg-warm-100/60 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-80 h-80 bg-sage-200/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-2xl mx-auto mb-14 fade-in-up">
+                <span class="text-xs sm:text-sm uppercase tracking-[0.2em] text-sage-500 font-semibold mb-4 block" data-i18n="upsell_eyebrow">Next Step</span>
+                <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-light text-sage-900 mb-5" data-i18n="upsell_h2">
+                    Want to Train Correctly<br class="sm:hidden"> and See Results Faster?
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed" data-i18n="upsell_desc">
+                    Once you know your weak points, the next step is fixing them systematically — with a coach checking your form every step of the way.
+                </p>
+            </div>
+
+            <div class="grid sm:grid-cols-3 gap-6 mb-14">
+                <div class="fade-in-up card-hover bg-white rounded-2xl p-6 sm:p-7 border border-sage-100 shadow-sm text-center">
+                    <div class="w-12 h-12 rounded-full bg-sage-50 text-sage-700 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                    </div>
+                    <h4 class="font-serif text-lg text-sage-900 font-semibold mb-2" data-i18n="feature1_title">Train Anywhere</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-i18n="feature1_desc">An online program you can follow on your own schedule — no travel required.</p>
+                </div>
+                <div class="fade-in-up card-hover bg-white rounded-2xl p-6 sm:p-7 border border-sage-100 shadow-sm text-center" style="transition-delay: 0.1s;">
+                    <div class="w-12 h-12 rounded-full bg-sage-50 text-sage-700 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h4 class="font-serif text-lg text-sage-900 font-semibold mb-2" data-i18n="feature2_title">Built From Your Baseline</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-i18n="feature2_desc">Programming shaped by your actual assessment results — no prior experience needed.</p>
+                </div>
+                <div class="fade-in-up card-hover bg-white rounded-2xl p-6 sm:p-7 border border-sage-100 shadow-sm text-center" style="transition-delay: 0.2s;">
+                    <div class="w-12 h-12 rounded-full bg-sage-50 text-sage-700 flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    </div>
+                    <h4 class="font-serif text-lg text-sage-900 font-semibold mb-2" data-i18n="feature3_title">Your Form, Checked</h4>
+                    <p class="text-sm text-gray-500 leading-relaxed" data-i18n="feature3_desc">Send a clip for John to review, with personal feedback based on your progress.</p>
+                </div>
+            </div>
+
+            <div class="fade-in-up bg-sage-800 rounded-[2rem] sm:rounded-[2.5rem] p-8 sm:p-12 text-center text-white">
+                <h3 class="font-serif text-2xl sm:text-3xl font-light mb-3" data-i18n="upsell_cta_title">Elevate Your Training With John Lizcano</h3>
+                <p class="text-sage-200 text-sm sm:text-base mb-8 max-w-xl mx-auto" data-i18n="upsell_cta_desc">Find &amp; Fix Mobility Method™ — courses and workshops led by a specialist in Mobility, FRC®, and Yoga Education.</p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="index.html#coaching" class="w-full sm:w-auto bg-white text-sage-800 px-8 py-4 rounded-full text-sm sm:text-base font-semibold tracking-wide hover:bg-sage-50 transition-colors inline-flex items-center justify-center gap-2">
+                        <span data-i18n="btn_course">View Course Details</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="https://wa.me/qr/KBW54YKSJ3CBF1" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto border-2 border-white/40 hover:border-white text-white px-8 py-[14px] rounded-full text-sm sm:text-base font-semibold tracking-wide transition-colors inline-flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.514 2.266 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.457L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.852.002-2.63-1.023-5.101-2.883-6.963C16.585 1.975 14.11 1.01 11.481 1.01 6.046 1.01 1.62 5.433 1.616 10.867c-.001 1.701.453 3.361 1.314 4.816l-.995 3.636 3.722-.965z"/></svg>
+                        <span data-i18n="btn_chat">Chat via LINE / WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-sage-900 text-white py-10">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div class="flex items-center gap-3">
+                <img src="JohnW_Logo.svg" alt="John Lizcano Logo" class="w-8 h-8 object-contain">
+                <span class="font-serif text-sm text-sage-200">John Lizcano &copy; 2026 · Mobility &amp; Movement Educator</span>
+            </div>
+            <a href="index.html" class="text-sage-400 hover:text-white transition-colors text-sm" data-i18n="footer_back">Back to Home</a>
+        </div>
+    </footer>
+
+    <!-- Mobile sticky download bar -->
+    <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-white/95 backdrop-blur-md border-t border-sage-100 px-4 pt-3 shadow-[0_-8px_24px_-8px_rgba(74,32,12,0.15)]">
+        <a href="Wall%20Mobility.pdf" download="Wall-Mobility-Self-Check-John-Lizcano.pdf"
+           class="btn-primary w-full bg-sage-700 text-white px-6 py-3.5 rounded-full text-sm font-semibold tracking-wide hover:bg-sage-800 inline-flex items-center justify-center gap-2 shadow-md mb-3">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16"/></svg>
+            <span data-i18n="sticky_btn">Download Free Mobility Assessment</span>
+        </a>
+    </div>
+
+    <script>
+        // ---- i18n ----
+        const translations = {
+            nav_download: { en: 'Free Download', th: 'ดาวน์โหลดฟรี' },
+            hero_badge: { en: '100% Free · Instant Download', th: 'ฟรี 100% · ดาวน์โหลดได้ทันที' },
+            hero_h1: {
+                en: 'Check Your<br><span class="italic">Ankle &amp; Shoulder</span> Mobility<br><span class="text-xl sm:text-2xl lg:text-3xl text-sage-700 font-normal block mt-3">Yourself — In 5 Minutes, With a Wall</span>',
+                th: 'เช็กความยืดหยุ่น<br><span class="italic">ข้อเท้า &amp; ไหล่</span> ด้วยตัวเอง<br><span class="text-xl sm:text-2xl lg:text-3xl text-sage-700 font-normal block mt-3">ใน 5 นาที ด้วยกำแพงบ้านของคุณ</span>'
+            },
+            hero_desc: {
+                en: 'The <span class="font-semibold text-sage-800">Wall Mobility Self-Check</span> from the <span class="font-semibold text-sage-800">Find &amp; Fix Mobility Method™</span> by John Lizcano — two simple tests that reveal your movement baseline before you squat, run, lift overhead, or deepen your yoga practice. All you need is a bare wall and a tape measure.',
+                th: 'คู่มือ <span class="font-semibold text-sage-800">Wall Mobility Self-Check</span> จาก <span class="font-semibold text-sage-800">Find &amp; Fix Mobility Method™</span> โดยจอห์น ลิซคาโน่ — 2 แบบทดสอบง่ายๆ ที่บอกพื้นฐานร่างกายคุณ ก่อนสควอท วิ่ง ยกน้ำหนัก หรือฝึกโยคะขั้นสูง ใช้แค่กำแพงเปล่าและตลับเมตร'
+            },
+            btn_download: { en: 'Download Free Mobility Assessment', th: 'ดาวน์โหลดแบบประเมินความยืดหยุ่น ฟรี' },
+            btn_preview: { en: 'Preview the Content', th: 'ดูตัวอย่างเนื้อหา' },
+            hero_note: { en: 'No spam · 4-page PDF · Opens instantly on mobile', th: 'ไม่มีสแปม · ไฟล์ PDF 4 หน้า · เปิดอ่านได้ทันทีบนมือถือ' },
+            book_badge_label: { en: 'Inside', th: 'แบบทดสอบ' },
+            book_badge_value: { en: '2 Tests', th: '2 แบบทดสอบ' },
+            scroll_cue: { en: 'Scroll', th: 'เลื่อนดู' },
+            preview_eyebrow: { en: "What's Inside", th: 'ตัวอย่างเนื้อหาในเล่ม' },
+            preview_h2: { en: '2 Tests You Can Run at Home', th: '2 แบบทดสอบ ที่บ้านได้ทันที' },
+            preview_desc: {
+                en: 'Your ankles and shoulders set the ceiling for almost everything you do under load — squatting, running, lifting overhead, landing. All you need is a bare wall and a tape measure to find your baseline in under 5 minutes.',
+                th: 'ข้อเท้าและไหล่คือจุดที่กำหนด "เพดาน" การเคลื่อนไหวของร่างกายเกือบทั้งหมด ทั้งสควอท วิ่ง ยกของเหนือหัว หรือการลงจากท่ากระโดด — ใช้แค่กำแพงเปล่าและตลับเมตร ก็รู้จุดเริ่มต้นของตัวเองได้ใน 5 นาที'
+            },
+            test1_title: { en: 'Ankle Mobility (Dorsiflexion)', th: 'ความยืดหยุ่นข้อเท้า (Ankle Dorsiflexion)' },
+            test1_desc: { en: "Relevant for squatting, running, and jumping — measure the knee-to-wall distance to gauge your ankle's range of motion.", th: 'เกี่ยวข้องโดยตรงกับการสควอท วิ่ง และกระโดด — วัดระยะเข่าถึงกำแพงเพื่อดูช่วงการเคลื่อนไหวของข้อเท้า' },
+            test2_title: { en: 'Shoulder Mobility (Flexion)', th: 'ความยืดหยุ่นไหล่ (Shoulder Flexion)' },
+            test2_desc: { en: "Important for overhead pressing, handstands, and backbends — check whether you're arching your back to fake the range.", th: 'สำคัญกับการยกน้ำหนักเหนือหัว แฮนด์สแตนด์ และแบ็คเบนด์ — เช็กว่าคุณ "โกงหลัง" แทนไหล่อยู่หรือเปล่า' },
+            cta_mid_title: { en: 'Ready to check your own body?', th: 'พร้อมเช็กร่างกายตัวเองหรือยัง?' },
+            cta_mid_desc: { en: 'Download the full guide (4-page PDF) and keep it open while you train.', th: 'ดาวน์โหลดคู่มือฉบับเต็ม (PDF 4 หน้า) ไว้เปิดดูระหว่างฝึกได้เลย' },
+            btn_download2: { en: 'Download Free Mobility Assessment', th: 'ดาวน์โหลดแบบประเมินความยืดหยุ่น ฟรี' },
+            upsell_eyebrow: { en: 'Next Step', th: 'ก้าวต่อไป' },
+            upsell_h2: {
+                en: 'Want to Train Correctly<br class="sm:hidden"> and See Results Faster?',
+                th: 'อยากฝึกอย่างถูกต้อง<br class="sm:hidden"> และเห็นผลไวยิ่งขึ้น?'
+            },
+            upsell_desc: {
+                en: 'Once you know your weak points, the next step is fixing them systematically — with a coach checking your form every step of the way.',
+                th: 'เมื่อรู้จุดอ่อนของร่างกายแล้ว ขั้นตอนต่อไปคือการแก้ไขอย่างเป็นระบบ — พร้อมครูที่คอยเช็กท่าให้คุณทุกขั้นตอน'
+            },
+            feature1_title: { en: 'Train Anywhere', th: 'ฝึกได้ทุกที่' },
+            feature1_desc: { en: 'An online program you can follow on your own schedule — no travel required.', th: 'โปรแกรมออนไลน์ เปิดฝึกตามเวลาที่คุณสะดวก ไม่ต้องเดินทาง' },
+            feature2_title: { en: 'Built From Your Baseline', th: 'ปรับพื้นฐานจาก 0' },
+            feature2_desc: { en: 'Programming shaped by your actual assessment results — no prior experience needed.', th: 'ออกแบบตามผลการประเมินจริงของคุณ ไม่ต้องมีพื้นฐานมาก่อน' },
+            feature3_title: { en: 'Your Form, Checked', th: 'ครูคอยเช็กท่าให้' },
+            feature3_desc: { en: 'Send a clip for John to review, with personal feedback based on your progress.', th: 'ส่งคลิปให้จอห์นดู พร้อมคำแนะนำเฉพาะบุคคลตามผลการฝึก' },
+            upsell_cta_title: { en: 'Elevate Your Training With John Lizcano', th: 'ยกระดับการฝึกของคุณกับ John Lizcano' },
+            upsell_cta_desc: {
+                en: 'Find &amp; Fix Mobility Method™ — courses and workshops led by a specialist in Mobility, FRC®, and Yoga Education.',
+                th: 'Find &amp; Fix Mobility Method™ — คอร์สและเวิร์กช็อปโดยผู้เชี่ยวชาญด้าน Mobility, FRC® และ Yoga Education'
+            },
+            btn_course: { en: 'View Course Details', th: 'ดูรายละเอียดคอร์สเรียน' },
+            btn_chat: { en: 'Chat via LINE / WhatsApp', th: 'สอบถามผ่าน LINE / WhatsApp' },
+            footer_back: { en: 'Back to Home', th: 'กลับหน้าหลัก' },
+            sticky_btn: { en: 'Download Free Mobility Assessment', th: 'ดาวน์โหลดแบบประเมินความยืดหยุ่น ฟรี' },
+            meta_title: { en: 'Free Download! Wall Mobility Self-Check — John Lizcano', th: 'รับฟรี! Wall Mobility Self-Check — John Lizcano' },
+            meta_desc: {
+                en: 'Download the free Wall Mobility Self-Check — assess your ankle and shoulder mobility yourself in under 5 minutes. From the Find & Fix Mobility Method™ by John Lizcano.',
+                th: 'ดาวน์โหลดฟรี Wall Mobility Self-Check คู่มือประเมินความยืดหยุ่นข้อเท้าและไหล่ด้วยตัวเอง ใช้เวลาไม่ถึง 5 นาที จาก Find & Fix Mobility Method™ โดย John Lizcano'
+            }
+        };
+
+        function setLang(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const entry = translations[key];
+                if (!entry) return;
+                if (el.hasAttribute('data-i18n-attr')) {
+                    el.setAttribute(el.getAttribute('data-i18n-attr'), entry[lang]);
+                } else {
+                    el.innerHTML = entry[lang];
+                }
+            });
+            document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+                btn.classList.toggle('active', btn.getAttribute('data-lang-btn') === lang);
+            });
+            try { localStorage.setItem('ebook_lang', lang); } catch (e) {}
+        }
+
+        document.querySelectorAll('[data-lang-btn]').forEach(btn => {
+            btn.addEventListener('click', () => setLang(btn.getAttribute('data-lang-btn')));
+        });
+
+        let initialLang = 'en';
+        try {
+            const saved = localStorage.getItem('ebook_lang');
+            if (saved === 'en' || saved === 'th') initialLang = saved;
+        } catch (e) {}
+        if (initialLang !== 'en') setLang(initialLang);
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Mobile sticky CTA — show after hero, hide near footer
+        const stickyCta = document.getElementById('sticky-cta');
+        const heroDownload = document.getElementById('download');
+        if (stickyCta && heroDownload) {
+            const stickyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    stickyCta.classList.toggle('show', entry.boundingClientRect.top < 0);
+                });
+            }, { threshold: 0 });
+            stickyObserver.observe(document.querySelector('header'));
+        }
+    </script>
+
+    <!-- Vercel Web Analytics Setup -->
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script src="/_vercel/insights/script.js"></script>
+</body>
+</html>
